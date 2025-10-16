@@ -1,5 +1,9 @@
-import Image from "next/image";
+import { NavbarSimpleColored } from "./navbar";
 
 export default function Home() {
-  return <div>JUST a HOMEPAGE</div>;
+  return (
+    <>
+      <NavbarSimpleColored />
+    </>
+  );
 }

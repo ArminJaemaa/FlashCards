@@ -7,6 +7,7 @@ import {
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import { NavbarSimpleColored } from "./navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,12 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider>
+          <div style={{ display: "flex", minHeight: "100vh" }}>
+            <NavbarSimpleColored />
+            <main style={{ flex: 1 }}>{children}</main>
+          </div>
+        </MantineProvider>
       </body>
     </html>
   );

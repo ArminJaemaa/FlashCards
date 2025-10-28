@@ -1,9 +1,7 @@
-import { NavbarSimpleColored } from "./navbar";
+export const metadata = {
+  title: "FlashCards",
+};
 
 export default function Home() {
-  return (
-    <>
-      <NavbarSimpleColored />
-    </>
-  );
+  return <>HomePgae for flashCards</>;
 }

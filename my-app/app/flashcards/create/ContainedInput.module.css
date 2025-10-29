@@ -1,0 +1,15 @@
+.wrapper {
+  position: relative;
+}
+
+.input {
+  padding-right: 2.5rem;
+}
+
+.icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

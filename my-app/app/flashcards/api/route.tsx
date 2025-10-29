@@ -2,9 +2,7 @@ import { supabase } from "@/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { data: cards, error } = await supabase
-    .from("flashCard")
-    .select("title");
+  const { data: cards, error } = await supabase.from("flashCard").select("*");
   if (error) {
     return new Response(JSON.stringify({ error: error.message }));
   }

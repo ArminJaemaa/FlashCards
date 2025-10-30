@@ -2,7 +2,11 @@ import { supabase } from "@/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { data: cards, error } = await supabase.from("flashCard").select("*");
+  const { data: cards, error } = await supabase
+    .from("flashCards")
+    .select("*")
+    .eq("deleted", false)
+    .order("created_at", { ascending: false });
   if (error) {
     return new Response(JSON.stringify({ error: error.message }));
   }
@@ -17,11 +21,11 @@ export async function POST(request: Request) {
     const body = await request.json();
     console.log("Received body:", body);
 
-    const { title, description } = body;
+    const { title, answer, category_id } = body;
 
     const { error } = await supabase
-      .from("flashCard")
-      .insert([{ title, description }])
+      .from("flashCards")
+      .insert([{ title, answer, category_id }])
       .select();
 
     if (error) {
@@ -37,7 +41,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 }
-
-export async function DELETE(request: Request) {}
-
-export async function PATCH(request: Request) {}

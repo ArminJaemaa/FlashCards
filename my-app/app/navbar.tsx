@@ -18,7 +18,7 @@ const data = [
     label: "Create flash cards",
     icon: IconDatabaseImport,
   },
-  { link: "flasCards/owerview", label: "Overview", icon: IconBellRinging },
+  { link: "/stats", label: "stats", icon: IconBellRinging },
 ];
 
 export function NavbarSimpleColored() {
